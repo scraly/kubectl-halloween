@@ -57,8 +57,9 @@ NAME                        READY   STATUS    RESTARTS   AGE
 
 ## TODO
 
-* To fix:
-* 
+* afficher des emojis differents selon le type de ressource en random
+* pour ne pas ajouter l'emoji pour les blank line et les lignes avec "NAME.."
+* BUG:
 ```
 $ ./kubectl-halloween get deploy,po                                                                                                                                                                                      <aws:1110><aws:1110>
 NAME                       READY   UP-TO-DATE   AVAILABLE   AGE
