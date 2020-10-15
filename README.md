@@ -5,7 +5,7 @@
 
 TODO: create a logo
 <p align="center">
-<img src="static/view-utilization.png" alt="view-utilization" width=96>
+    <img src="static/logo.png" alt="kubectl-halloween" width=96>
 </p>
 
 ## General
@@ -75,3 +75,8 @@ NAME                       READY   UP-TO-DATE   AVAILABLE   AGE
 🕷️ pod/traefik-6c5c6d77c9-64mtw    1/1     Running   1          19h
 🕷️ pod/traefik-6c5c6d77c9-k5kqm    1/1     Running   1          20h
 ```
+
+
+## Changelog
+
+See the [CHANGELOG](CHANGELOG.md) file for details.
