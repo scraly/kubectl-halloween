@@ -57,26 +57,24 @@ NAME                        READY   STATUS    RESTARTS   AGE
 
 ## TODO
 
-* afficher des emojis differents selon le type de ressource en random
-* pour ne pas ajouter l'emoji pour les blank line et les lignes avec "NAME.."
-* BUG:
-```
-$ ./kubectl-halloween get deploy,po                                                                                                                                                                                      <aws:1110><aws:1110>
-NAME                       READY   UP-TO-DATE   AVAILABLE   AGE
-🕷️ deployment.apps/httpbin    1/1     1            1           26h
-🕷️ deployment.apps/my-nginx   3/3     3            3           44h
-🕷️ deployment.apps/traefik    3/3     3            3           6d
-🕷️
-🕷️ NAME                            READY   STATUS    RESTARTS   AGE
-🕷️ pod/httpbin-c9cb9cbf6-r2gnc     1/1     Running   0          26h
-🕷️ pod/my-nginx-75897978cd-f28j9   1/1     Running   0          44h
-🕷️ pod/my-nginx-75897978cd-pt2dx   1/1     Running   0          20h
-🕷️ pod/my-nginx-75897978cd-w2bcg   1/1     Running   0          19h
-🕷️ pod/traefik-6c5c6d77c9-5w455    1/1     Running   1          20h
-🕷️ pod/traefik-6c5c6d77c9-64mtw    1/1     Running   1          19h
-🕷️ pod/traefik-6c5c6d77c9-k5kqm    1/1     Running   1          20h
-```
+* Afficher des emojis differents selon le type de ressource en random
+* Bug: Ne pas ajouter l'emoji pour les blank line et les lignes avec "NAME.."
 
+```
+$ ./kubectl-halloween get deploy,po                                                                                                                      NAME                            READY   STATUS    RESTARTS   AGE
+🎃 pod/httpbin-c9cb9cbf6-r2gnc     1/1     Running   0          27h
+🎃 pod/my-nginx-75897978cd-f28j9   1/1     Running   0          46h
+🎃 pod/my-nginx-75897978cd-pt2dx   1/1     Running   0          21h
+🎃 pod/my-nginx-75897978cd-w2bcg   1/1     Running   0          20h
+🎃 pod/traefik-6c5c6d77c9-5w455    1/1     Running   1          21h
+🎃 pod/traefik-6c5c6d77c9-64mtw    1/1     Running   1          20h
+🎃 pod/traefik-6c5c6d77c9-k5kqm    1/1     Running   1          22h
+🎃
+NAME                       READY   UP-TO-DATE   AVAILABLE   AGE
+🎃 deployment.apps/httpbin    1/1     1            1           27h
+🎃 deployment.apps/my-nginx   3/3     3            3           46h
+🎃 deployment.apps/traefik    3/3     3            3           6d1h
+```
 
 ## Changelog
 
