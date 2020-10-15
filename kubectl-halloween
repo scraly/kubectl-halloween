@@ -10,11 +10,9 @@
 # ./kubectl-halloween get <resource_type>                                #
 ##########################################################################
 
-#echo "Vous avez passé $# paramètres"
-
 # Select emoji randomly
-EMOJIS=(🎃 👻 🧟 🧛 🕷️ 🧙)
-SELECTED_EMOJI=${EMOJIS[$RANDOM % ${#EMOJIS[@]}]};
+EMOJIS=(🎃 👻 🧟 🧛 🕷 🧙 💀 ☠ 😈)
+SELECTED_EMOJI=${EMOJIS[$(( ( RANDOM % ${#EMOJIS[@]} ) ))]};
 
 # Usage
 if [[ "$1" == "" || "$1" == "-h" || "$1" == "--help" ]]
@@ -29,15 +27,11 @@ fi
 # Main
 if [[ "$1" == "get" ]]
 then
-    # kubectl $* | sed -e "1 ! s/^/${SELECTED_EMOJI} /"
-    # except blank line
-    # kubectl $* | sed -e "/^$/! s/^/${SELECTED_EMOJI} /"
-    # except line starting with NAME
-    kubectl $* | sed -e "/^NAME/ ! s/^/${SELECTED_EMOJI} /"
+    # add an emoji at the beginning of the line except for blank line and line beginning by NAME
+    kubectl "$@" | sed -E "/^(NAME|$)/ ! s/^/${SELECTED_EMOJI} /"
 else
-    kubectl $*
+    kubectl "$@"
 fi
 
 #TODO: 
 # afficher des emojis differents selon le type de ressource en random
-# pour ne pas ajouter l'emoji pour les blank line et les lignes avec "NAME.."
