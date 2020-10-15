@@ -1,0 +1,20 @@
+#!/bin/bash
+
+EMOJIS=(🎃 👻 🧟 🧛 🕷️ 🧙)
+
+SELECTED_EMOJI=${EMOJIS[$RANDOM % ${#EMOJIS[@]}]};
+
+#echo "Vous avez passé $# paramètres"
+
+if [[ "$1" == "" ]]
+then
+    echo "Error: you must define arguments"
+    exit 1
+fi
+
+if [[ "$1" == "get" ]]
+then
+    kubectl $* | sed -e "1 ! s/^/${SELECTED_EMOJI} /"
+else
+    kubectl $*
+fi
