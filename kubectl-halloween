@@ -6,32 +6,39 @@
 # Welcome in Halloween plugin for kubectl Kubernetes CLI                 #
 # which display randomly an emoji in the beginning of the resources name #
 #                                                                        #
-# USAGE:                                                                 #
-# ./kubectl-halloween get <resource_type>                                #
+# Usage:                                                                 #
+# ./kubectl-halloween <resource_type>                                    #
+#                                                                        #
+# Example:                                                               #
+# ./kubectl-halloween pod                                                #
+# NAME                        READY   STATUS    RESTARTS   AGE           #
+# 🎃 httpbin-c9cb9cbf6-r2gnc     1/1     Running   0          2d1h       #
+# 🎃 my-nginx-75897978cd-f28j9   1/1     Running   0          2d20h      #
+# 🎃 my-nginx-75897978cd-pt2dx   1/1     Running   0          43h        #
+# 🎃 my-nginx-75897978cd-w2bcg   1/1     Running   0          42h        #
+# 🎃 traefik-85854f965f-pb6j2    1/1     Running   1          137m       #
 ##########################################################################
 
-# Select emoji randomly
+# CONSTS
+## Select emoji randomly
 EMOJIS=(🎃 👻 🧟 🧛 🕷 🧙 💀 ☠ 😈)
 SELECTED_EMOJI=${EMOJIS[$(( ( RANDOM % ${#EMOJIS[@]} ) ))]};
 
+## Usage
+n=$'\n'
+usage="Display Halloween emoji randomly just before resources name.${n}${n}Usage:${n}   kubectl halloween KIND${n}${n}Examples:${n}   kubectl halloween pod${n}   kubectl halloween pod,svc${n}   kubectl halloween deploy -A"
+
+# MAIN
 # Usage
+# if [[ "$1" == "" || "$1" == "-h" || "$1" == "--help" || "$#" > 1 ]]
 if [[ "$1" == "" || "$1" == "-h" || "$1" == "--help" ]]
 then
-    n=$'\n'
-    usage="Display Halloween emoji randomly just before resources name.${n}${n}Usage:${n}   kubectl halloween get <resource_type>"
-
     echo "$usage" 
     exit 1
 fi
 
-# Main
-if [[ "$1" == "get" ]]
-then
-    # add an emoji at the beginning of the line except for blank line and line beginning by NAME
-    kubectl "$@" | sed -E "/^(NAME|$)/ ! s/^/${SELECTED_EMOJI} /"
-else
-    kubectl "$@"
-fi
+# add an emoji at the beginning of the line except for blank line and line beginning by NAME
+kubectl get "$@" | sed -E "/^(NAME|$)/ ! s/^/${SELECTED_EMOJI} /"
 
 #TODO: 
 # afficher des emojis differents selon le type de ressource en random
