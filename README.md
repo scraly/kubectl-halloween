@@ -33,10 +33,10 @@ due to the enforced naming convention for plugins by `kubectl`. More on this [he
 
 ## Usage
 
-`kubectl halloween get <resource_type>`
+`kubectl halloween <resource_type>`
 
 ```
-$ kubectl halloween get deploy                                                                                                                        
+$ kubectl halloween deploy                                                                                                                        
 NAME       READY   UP-TO-DATE   AVAILABLE   AGE
 🧟 httpbin    1/1     1            1           26h
 🧟 my-nginx   3/3     3            3           44h
@@ -44,15 +44,18 @@ NAME       READY   UP-TO-DATE   AVAILABLE   AGE
 ```
 
 ```
-$ kubectl halloween get po  
-NAME                        READY   STATUS    RESTARTS   AGE
-🎃 httpbin-c9cb9cbf6-r2gnc     1/1     Running   0          26h
-🎃 my-nginx-75897978cd-f28j9   1/1     Running   0          44h
-🎃 my-nginx-75897978cd-pt2dx   1/1     Running   0          20h
-🎃 my-nginx-75897978cd-w2bcg   1/1     Running   0          19h
-🎃 traefik-6c5c6d77c9-5w455    1/1     Running   1          20h
-🎃 traefik-6c5c6d77c9-64mtw    1/1     Running   1          19h
-🎃 traefik-6c5c6d77c9-k5kqm    1/1     Running   1          20h
+$ kubectl halloween po ,deploy 
+NAME                            READY   STATUS    RESTARTS   AGE
+🎃 pod/httpbin-c9cb9cbf6-r2gnc     1/1     Running   0          2d2h
+🎃 pod/my-nginx-75897978cd-f28j9   1/1     Running   0          2d21h
+🎃 pod/my-nginx-75897978cd-pt2dx   1/1     Running   0          44h
+🎃 pod/my-nginx-75897978cd-w2bcg   1/1     Running   0          43h
+🎃 pod/traefik-85854f965f-pb6j2    1/1     Running   1          174m
+
+NAME                       READY   UP-TO-DATE   AVAILABLE   AGE
+🎃 deployment.apps/httpbin    1/1     1            1           2d2h
+🎃 deployment.apps/my-nginx   3/3     3            3           2d21h
+🎃 deployment.apps/traefik    1/1     1            1           7d
 ```
 
 ## TODO
