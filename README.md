@@ -3,9 +3,8 @@
 [![Twitter](https://img.shields.io/badge/twitter-@scraly-blue.svg)](http://twitter.com/scraly)
 [![GitHub release](https://img.shields.io/github/release/scraly/kubectl-halloween.svg)](https://github.com/scraly/kubectl-halloween/releases)
 
-TODO: create a logo
 <p align="center">
-    <img src="static/logo.png" alt="kubectl-halloween" width=96>
+    <img src="assets/logo.jpg" alt="kubectl-halloween" width=96>
 </p>
 
 ## General
