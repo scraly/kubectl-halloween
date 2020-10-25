@@ -45,7 +45,7 @@ NAME       READY   UP-TO-DATE   AVAILABLE   AGE
 ```
 
 ```
-$ kubectl halloween po ,deploy 
+$ kubectl halloween po, deploy 
 NAME                            READY   STATUS    RESTARTS   AGE
 🎃 pod/httpbin-c9cb9cbf6-r2gnc     1/1     Running   0          2d2h
 🎃 pod/my-nginx-75897978cd-f28j9   1/1     Running   0          2d21h
